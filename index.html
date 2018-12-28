@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>Giphy App</title>
+    
+         <!-- jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Bootstrap CDN-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <!-- This first row will be populated with buttons -->
+            <div class="row">
+                <div class="col-md-12 text-center buttons">
+                    <!-- Buttons will be added here dynamically -->
+                </div>
+            </div>
+
+            <!-- The second row will contain all of the gifs and the search bar -->
+            <div class="row">
+                <div class="col-md-6 gifs">
+                    <!-- Gifs will be added here dynamically -->
+                </div>
+
+                <div class="col-md-6 search">
+                    <label for="searchBar">Add a Videogame!</label>
+                    <br>
+                    <input type="text" class="form-control" id="searchBar">
+                    <button>Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="assets/javascript/script.js"></script>
+    </body>
+</html>
