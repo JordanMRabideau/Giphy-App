@@ -16,7 +16,7 @@
         <div class="container">
             <!-- This first row will be populated with buttons -->
             <div class="row">
-                <div class="col-md-12 text-center buttons">
+                <div class="col-md-12 buttons">
                     <!-- Buttons will be added here dynamically -->
                 </div>
             </div>
@@ -27,11 +27,13 @@
                     <!-- Gifs will be added here dynamically -->
                 </div>
 
-                <div class="col-md-6 search">
-                    <label for="searchBar">Add a Videogame!</label>
-                    <br>
-                    <input type="text" class="form-control" id="searchBar">
-                    <button>Submit</button>
+                <div class="col-md-6">
+                    <form id="search">
+                        <label for="searchBar">Add a Videogame!</label>
+                        <br>
+                        <input type="text" class="form-control" id="searchBar">
+                        <input  type="submit" value="Submit" id="addButton">
+                    </form>
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ var buttonArray = [
 ];
 
 function buttonMaker() {
-    // $(".buttons").empty();
+    $(".buttons").empty();
     for (var i = 0; i < buttonArray.length; i++) {
         let button = $("<button>");
         button.text(buttonArray[i]);
@@ -25,14 +25,37 @@ function displayGif() {
         method: "GET"
     }).then(function(response) {
         console.log(response);
-        var gameDiv = $("<div class='game'>");
+        var dataArray = response.data;
+        console.log(dataArray);
+        for (i = 0; i < dataArray.length; i++) {
+            var gameDiv = $("<div class='game'>");
+            var rating = dataArray[i].rating;
+            var gif = $("<img>");
+            gif.attr("src", dataArray[i].url);
+            gameDiv.append(rating);
+            gameDiv.append(gif);
+            $(".gifs").append(gameDiv);
+        };
+    });
+};
 
-    })
-}
+$("#addButton").click(function(event) {
+    event.preventDefault();
+    var search = $("#searchBar").val().trim();
+    console.log(search);
+    $("#searchBar").val("");
+    if ((buttonArray.indexOf(search) == -1) && (search !== "")) {
+        buttonArray.push(search);
+        buttonMaker();
+    } else if (buttonArray.indexOf(search) >= 0) {
+        alert("That game is already in your list.");
+    };
+    console.log(buttonArray);
+})
 
 buttonMaker();
+console.log(buttonArray.indexOf("Halo"))
 
-$(".button").click(displayGif);
-
+$(document).on("click", ".button", displayGif);
 
 // Giphy API key: eu0i9BrdZG5H3Pht6B3h3zG1GUH1d0lU
