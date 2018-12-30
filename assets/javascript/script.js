@@ -16,7 +16,7 @@ function buttonMaker() {
 };
 
 function displayGif() {
-
+    $(".gifs").empty()
     var game = $(this).attr("data-name");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + game + "&limit=10&rating=pg-13&api_key=eu0i9BrdZG5H3Pht6B3h3zG1GUH1d0lU"
 
@@ -28,13 +28,14 @@ function displayGif() {
         var dataArray = response.data;
         console.log(dataArray);
         for (i = 0; i < dataArray.length; i++) {
-            var gameDiv = $("<div class='game'>");
-            var rating = dataArray[i].rating;
+            var gifDiv = $("<div class='gif'>")
+            gifDiv.css("float", "left");
+            var rating = $("<p>").text("Rating: " + dataArray[i].rating);
             var gif = $("<img>");
-            gif.attr("src", dataArray[i].url);
-            gameDiv.append(rating);
-            gameDiv.append(gif);
-            $(".gifs").append(gameDiv);
+            gif.attr("src", dataArray[i].images.fixed_height_small_still.url);
+            gifDiv.append(rating);
+            gifDiv.append(gif);
+            $(".gifs").append(gifDiv);
         };
     });
 };
