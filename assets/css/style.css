@@ -1,3 +1,11 @@
-img {
-    float: left;
+.gif {
+    margin-right: 5px;
+}
+
+#addButton {
+    margin-top: 3px;
+}
+
+.button {
+    margin: 5px;
 }
