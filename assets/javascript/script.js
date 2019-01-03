@@ -4,14 +4,14 @@ var buttonArray = [
     "Dark Souls",
 ];
 
-localStorage.setItem("buttons", JSON.stringify(buttonArray));
+// localStorage.setItem("buttons", JSON.stringify(buttonArray));
 
 
 
 function buttonMaker() {
     $(".buttons").empty();
     var retrievedData = JSON.parse(localStorage.getItem("buttons"));
-    console.log(retrievedData.length)
+    console.log(retrievedData)
     for (var i = 0; i < retrievedData.length; i++) {
         let button = $("<button>");
         button.text(retrievedData[i]);
@@ -58,7 +58,7 @@ $("#addButton").click(function(event) {
     if ((buttonArray.indexOf(search) == -1) && (search !== "")) {
         localStorage.clear();
         buttonArray.push(search);
-        localStorage.setItem("buttons", buttonArray);
+        localStorage.setItem("buttons", JSON.stringify(buttonArray));
         buttonMaker();
     } else if (buttonArray.indexOf(search) >= 0) {
         alert("That game is already in your list.");
