@@ -2,6 +2,9 @@ var buttonArray = [
     "Final Fantasy",
     "Resident Evil",
     "Dark Souls",
+    "Halo",
+    "Super Smash Brothers",
+    "Monkey Island",
 ];
 
 // localStorage.setItem("buttons", JSON.stringify(buttonArray));
@@ -11,15 +14,19 @@ var buttonArray = [
 function buttonMaker() {
     $(".buttons").empty();
     var retrievedData = JSON.parse(localStorage.getItem("buttons"));
-    console.log(retrievedData)
     for (var i = 0; i < retrievedData.length; i++) {
-        let button = $("<button>");
-        button.text(retrievedData[i]);
-        button.addClass("button")
-        button.attr("data-name", retrievedData[i]);
-        $(".buttons").append(button);
+        let gameButton = $("<button>");
+        gameButton.text(retrievedData[i]);
+        gameButton.addClass("button")
+        gameButton.attr("data-name", retrievedData[i]);
+        $(".buttons").append(gameButton);
     };
 };
+
+$("#reset").click(function() {
+    localStorage.setItem("buttons", JSON.stringify(buttonArray));
+    buttonMaker();
+})
 
 function displayGif() {
     $(".gifs").empty()
@@ -77,11 +84,9 @@ $(document).on("click", ".gif", function() {
         $(this).attr("data-state", "still");
         $(this).attr("src", $(this).attr("data-still"));
     }
-    console.log("Final Data-state: " + state);
 })
 
 buttonMaker();
-console.log(buttonArray.indexOf("Halo"))
 
 $(document).on("click", ".button", displayGif);
 
